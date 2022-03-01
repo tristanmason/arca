@@ -1,0 +1,116 @@
+.entry-content h2 {
+    color: $purple;
+}
+.wp-block-buttons {
+    margin-bottom: 1em;
+}
+.wp-block-button__link {
+    background: $purple;
+}
+.btn-primary {
+    clip-path: polygon(.8em 0,100% 0,100% calc(100% - .8em),calc(100% - .8em) 100%,0 100%,0 .8em);
+}
+
+.custom-logo-link {
+    width: 250px;
+    max-width: 70%;
+}
+.menu-item.btn-primary {
+    .nav-link {
+        color: $white;
+        padding-right: 1.6rem;
+        padding-left: 1.5rem;
+    }
+    @include media-breakpoint-up(lg) {
+        margin-left: calc(1.2rem + .5vw);
+    }
+}
+
+.home { 
+    .entry-header {
+        display: none;
+    }
+    #full-width-page-wrapper {
+        padding-top: 0;
+    }
+}
+.arca-home-hero {
+    min-height: 70vw;
+    @include media-breakpoint-up(lg) {
+        min-height: 450px;
+        height: 48vw;
+        max-height: 80vh;
+    }
+/*
+    .wp-block-cover__inner-container {
+        position: absolute;
+        top: 80%;
+        background-color: $purple;
+        padding: 2em 3em 1em;
+        text-align: center;
+        clip-path: polygon(3em 0%, calc(100% - 3em) 0%, 100% 30%, 100% 30%, calc(100% - 7em) 100%, 7em 100%, 0% 30%, 0% 30%);
+
+        h1, h2, h3, p {
+            max-width: 70%;
+            margin: 0 auto 1em;
+        }
+    } */
+}
+.arca-gem-row {
+    position: relative;
+    z-index: 1;
+    background-color: $purple;
+    padding: 1em;
+    text-align: center;
+    clip-path: polygon(3em 0%, calc(100% - 3em) 0%, 100% 30%, 100% 30%, calc(100% - 7em) 100%, 7em 100%, 0% 30%, 0% 30%);
+    color: $white;
+    margin: calc(-6.5em - 1vw) auto 1em;
+    max-width: calc(1000px + 1vw);
+
+    h1, h2, h3, p {
+        max-width: 66%;
+        margin: 0 auto 0.5em;
+    }
+    h2 {
+        font-size: calc(.75rem + .75vw);
+        color: $white;
+        font-weight: 400;
+    }
+    @include media-breakpoint-up(md) {
+        padding: 2em 3em 1em;
+
+        h1, h2, h3, p {
+            max-width: 70%;
+        }
+    }
+    @include media-breakpoint-up(lg) {
+        .nobr {
+            white-space: nowrap;
+        }
+    }
+}
+
+.arca-angles-left img {
+    clip-path: polygon(25% 0, 100% 0, 100% 100%, 25% 100%, 0 67%, 0 33%);
+}
+.arca-angles-right img {
+    clip-path: polygon(0 0, 75% 0, 100% 33%, 100% 67%, 75% 100%, 0 100%);
+}
+@include media-breakpoint-up(md) {
+    .arca-cols-text-right {
+        .wp-block-column {
+            padding-right: 5vw;
+            .wp-block-image {
+                max-width: 800px;
+            }
+        }
+    }
+    .arca-cols-text-left {
+        .wp-block-column {
+            padding-left: 5vw;
+            .wp-block-image {
+                max-width: 800px;
+            }
+        }
+    }
+}
