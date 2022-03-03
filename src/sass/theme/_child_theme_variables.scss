@@ -2,10 +2,69 @@
 // To overwrite a Bootstrap variable you don´t have to touch the Bootstrap folder.
 // Just copy a variable from src/sass/assets/bootstrap5/_variables.scss, paste it here and edit the value.
 
+// UCA Brand Colors
+$purple: #4F2D7F;
+$purple-lt: #a897c0;
+$purple-dk: #3B245E;
+$gray: #818A8F;
+$gray-lt: #c0c5c7;
+$gray-dk: #555555;
+$green: #9cc760;
+$blue: #5197be;
+$teal: #0d746e;
+$text: #222222;
+$red: #dc3545;
+$black: #000000;
+$white: #ffffff;
+$gold: #EDB72C;
+$light: #efefef;
+$dark: #222222;
 
-$purple: #4F2D7F; // Thats a sample how you could change a BootStrap variable.
-$primary: $purple;  // Once we've changed the value, we'll also make it the primary brand color.
+$primary: $purple;
+$secondary: $gray;
+$success: $green;
+$info: $blue;
+$warning: $gold;
+$danger: $red;
 
+// Color names map
+$colors: (
+  "purple": $purple,
+  "gray":   $gray,
+  "green":  $green,
+  "blue":   $blue,
+  "teal":   $teal,
+  "red":     $red,
+  "black":      $black,
+  "white":      $white,
+  "gray-dark":  $gray-dk,
+  "purple-dark": $purple-dk
+);
+
+// Theme colors map
+$theme-colors: (
+  "primary":    $primary,
+  "secondary":  $secondary,
+  "success":    $success,
+  "info":       $info,
+  "warning":    $warning,
+  "danger":     $danger,
+  "light":      $light,
+  "dark":       $dark
+);
+
+// Navbar
 $navbar-light-color: $primary;
-$navbar-nav-link-padding-x: calc(.7rem + .5vw);
+$navbar-nav-link-padding-x: calc(.65rem + .5vw);
+
+// Typography
+$font-family-sans-serif: "Source Sans Pro", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+$font-size-base: 1.125rem;
+$headings-margin-bottom: calc(1rem + .5vw);
+$headings-color: $purple;
+$paragraph-margin-bottom: 1.4rem;
+
+// Buttons
 $btn-border-radius: 0;
+$input-btn-padding-y: .5rem;
+$input-btn-padding-x: 1rem;

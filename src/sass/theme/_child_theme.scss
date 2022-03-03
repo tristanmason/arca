@@ -1,13 +1,35 @@
-.entry-content h2 {
-    color: $purple;
+.nobr {
+    white-space: nowrap;
 }
-.wp-block-buttons {
+@include media-breakpoint-up(lg) {
+    .nobr-lg {
+        white-space: nowrap;
+    }
+}
+.entry-content {
+    /*p {
+        font-size: 1.12rem;
+    } 
+    h2 {
+        color: $purple;
+    } */
+}
+.heading-xl {
+    font-size: calc(2.5em + .5vw);
+}
+.entry-content .wp-block-buttons {
     margin-bottom: 1em;
+    gap: calc(.5em + .5vw);
 }
 .wp-block-button__link {
     background: $purple;
+    &:hover {
+        background: $purple-dk;
+    }
 }
-.btn-primary {
+
+.btn-primary,
+.wp-block-button__link {
     clip-path: polygon(.8em 0,100% 0,100% calc(100% - .8em),calc(100% - .8em) 100%,0 100%,0 .8em);
 }
 
@@ -23,6 +45,22 @@
     }
     @include media-breakpoint-up(lg) {
         margin-left: calc(1.2rem + .5vw);
+    }
+}
+
+/* Footer */
+#wrapper-footer-full {
+    background: linear-gradient($purple, $purple-dk);
+}
+.footer-widget .wp-block-social-links.is-style-logos-only .wp-block-social-link {
+    color: $white;
+}
+#wrapper-footer {
+    background-color: $purple-dk;
+    color: $gray-lt;
+
+    a {
+        color: $purple-lt;
     }
 }
 
@@ -70,46 +108,61 @@
     h1, h2, h3, p {
         max-width: 66%;
         margin: 0 auto 0.5em;
+        color: $white;
+    }
+    h1 {
+        font-size: $font-size-base * 1.6;
     }
     h2 {
-        font-size: calc(.75rem + .75vw);
-        color: $white;
+        font-size: calc(.8rem + .75vw);
         font-weight: 400;
     }
     @include media-breakpoint-up(md) {
-        padding: 2em 3em 1em;
+        padding: 2em 3em;
 
         h1, h2, h3, p {
             max-width: 70%;
         }
-    }
-    @include media-breakpoint-up(lg) {
-        .nobr {
-            white-space: nowrap;
+        h1 {
+            font-size: $font-size-base * 2.25;
         }
     }
 }
 
-.arca-angles-left img {
+.arca-angles-left {
     clip-path: polygon(25% 0, 100% 0, 100% 100%, 25% 100%, 0 67%, 0 33%);
 }
-.arca-angles-right img {
+.arca-angles-right {
     clip-path: polygon(0 0, 75% 0, 100% 33%, 100% 67%, 75% 100%, 0 100%);
+}
+.arca-cols-text-right {
+    .wp-block-column:nth-of-type(2) {
+        padding: 0 1rem;
+    }
+}
+.arca-cols-text-left {
+    .wp-block-column:first-of-type {
+        padding: 0 1rem;
+    }
 }
 @include media-breakpoint-up(md) {
     .arca-cols-text-right {
         .wp-block-column {
+            padding-left: 0;
             padding-right: 5vw;
             .wp-block-image {
-                max-width: 800px;
+                max-height: 550px;
+                // max-width: 800px;
             }
         }
     }
     .arca-cols-text-left {
         .wp-block-column {
             padding-left: 5vw;
+            padding-right: 0;
             .wp-block-image {
-                max-width: 800px;
+                max-height: 550px;
+                // max-width: 800px;
             }
         }
     }
