@@ -27,18 +27,22 @@ $info: $blue;
 $warning: $gold;
 $danger: $red;
 
-// Color names map
+// Color names map - changes block editor color picker if you also edit /src/build/postcss.config.js
 $colors: (
   "purple": $purple,
-  "gray":   $gray,
-  "green":  $green,
-  "blue":   $blue,
-  "teal":   $teal,
-  "red":     $red,
-  "black":      $black,
-  "white":      $white,
-  "gray-dark":  $gray-dk,
-  "purple-dark": $purple-dk
+  "gray": $gray,
+  "purple-dark": $purple-dk,
+  "purple-light": $purple-lt,
+  "gray-dark": $gray-dk,
+  "gray-light": $gray-lt,
+  "text": $text,
+  "black": $black,
+  "white": $white,
+  "green": $green,
+  "blue": $blue,
+  "teal": $teal,
+  "gold": $gold,
+  "red": $red
 );
 
 // Theme colors map

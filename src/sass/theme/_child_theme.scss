@@ -136,11 +136,17 @@
     clip-path: polygon(0 0, 75% 0, 100% 33%, 100% 67%, 75% 100%, 0 100%);
 }
 .arca-cols-text-right {
+    .wp-block-column {
+        position: relative;
+    }
     .wp-block-column:nth-of-type(2) {
         padding: 0 1rem;
     }
 }
 .arca-cols-text-left {
+    .wp-block-column {
+        position: relative;
+    }
     .wp-block-column:first-of-type {
         padding: 0 1rem;
     }
@@ -165,5 +171,18 @@
                 // max-width: 800px;
             }
         }
+    }
+}
+
+/* Animations */
+#paperAirplane {
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    top: 0;
+    @include media-breakpoint-up(md) {
+        position: relative;
+        margin-bottom: -300px;
+        transform: translate(-300px,-80px);
     }
 }

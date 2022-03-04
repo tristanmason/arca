@@ -8,14 +8,18 @@
 :root {
   --bs-purple: #4F2D7F;
   --bs-gray: #818A8F;
+  --bs-purple-dark: #3B245E;
+  --bs-purple-light: #a897c0;
+  --bs-gray-dark: #555555;
+  --bs-gray-light: #c0c5c7;
+  --bs-text: #222222;
+  --bs-black: #000000;
+  --bs-white: #ffffff;
   --bs-green: #9cc760;
   --bs-blue: #5197be;
   --bs-teal: #0d746e;
+  --bs-gold: #EDB72C;
   --bs-red: #dc3545;
-  --bs-black: #000000;
-  --bs-white: #ffffff;
-  --bs-gray-dark: #555555;
-  --bs-purple-dark: #3B245E;
   --bs-gray-100: #f8f9fa;
   --bs-gray-200: #e9ecef;
   --bs-gray-300: #dee2e6;
@@ -15830,10 +15834,16 @@ figure.woocommerce-product-gallery__wrapper {
   clip-path: polygon(0 0, 75% 0, 100% 33%, 100% 67%, 75% 100%, 0 100%);
 }
 
+.arca-cols-text-right .wp-block-column {
+  position: relative;
+}
 .arca-cols-text-right .wp-block-column:nth-of-type(2) {
   padding: 0 1rem;
 }
 
+.arca-cols-text-left .wp-block-column {
+  position: relative;
+}
 .arca-cols-text-left .wp-block-column:first-of-type {
   padding: 0 1rem;
 }
@@ -15855,6 +15865,21 @@ figure.woocommerce-product-gallery__wrapper {
     max-height: 550px;
   }
 }
+/* Animations */
+#paperAirplane {
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  top: 0;
+}
+@media (min-width: 768px) {
+  #paperAirplane {
+    position: relative;
+    margin-bottom: -300px;
+    transform: translate(-300px, -80px);
+  }
+}
+
 .has-purple-color,
 .has-purple-color:visited {
   color: #4F2D7F;
@@ -15873,6 +15898,76 @@ figure.woocommerce-product-gallery__wrapper {
 .has-gray-background-color {
   background-color: #818A8F;
   border-color: #818A8F;
+}
+
+.has-purple-dark-color,
+.has-purple-dark-color:visited {
+  color: #3B245E;
+}
+
+.has-purple-dark-background-color {
+  background-color: #3B245E;
+  border-color: #3B245E;
+}
+
+.has-purple-light-color,
+.has-purple-light-color:visited {
+  color: #a897c0;
+}
+
+.has-purple-light-background-color {
+  background-color: #a897c0;
+  border-color: #a897c0;
+}
+
+.has-gray-dark-color,
+.has-gray-dark-color:visited {
+  color: #555555;
+}
+
+.has-gray-dark-background-color {
+  background-color: #555555;
+  border-color: #555555;
+}
+
+.has-gray-light-color,
+.has-gray-light-color:visited {
+  color: #c0c5c7;
+}
+
+.has-gray-light-background-color {
+  background-color: #c0c5c7;
+  border-color: #c0c5c7;
+}
+
+.has-text-color,
+.has-text-color:visited {
+  color: #222222;
+}
+
+.has-text-background-color {
+  background-color: #222222;
+  border-color: #222222;
+}
+
+.has-black-color,
+.has-black-color:visited {
+  color: #000000;
+}
+
+.has-black-background-color {
+  background-color: #000000;
+  border-color: #000000;
+}
+
+.has-white-color,
+.has-white-color:visited {
+  color: #ffffff;
+}
+
+.has-white-background-color {
+  background-color: #ffffff;
+  border-color: #ffffff;
 }
 
 .has-green-color,
@@ -15905,6 +16000,16 @@ figure.woocommerce-product-gallery__wrapper {
   border-color: #0d746e;
 }
 
+.has-gold-color,
+.has-gold-color:visited {
+  color: #EDB72C;
+}
+
+.has-gold-background-color {
+  background-color: #EDB72C;
+  border-color: #EDB72C;
+}
+
 .has-red-color,
 .has-red-color:visited {
   color: #dc3545;
@@ -15913,46 +16018,6 @@ figure.woocommerce-product-gallery__wrapper {
 .has-red-background-color {
   background-color: #dc3545;
   border-color: #dc3545;
-}
-
-.has-black-color,
-.has-black-color:visited {
-  color: #000000;
-}
-
-.has-black-background-color {
-  background-color: #000000;
-  border-color: #000000;
-}
-
-.has-white-color,
-.has-white-color:visited {
-  color: #ffffff;
-}
-
-.has-white-background-color {
-  background-color: #ffffff;
-  border-color: #ffffff;
-}
-
-.has-gray-dark-color,
-.has-gray-dark-color:visited {
-  color: #555555;
-}
-
-.has-gray-dark-background-color {
-  background-color: #555555;
-  border-color: #555555;
-}
-
-.has-purple-dark-color,
-.has-purple-dark-color:visited {
-  color: #3B245E;
-}
-
-.has-purple-dark-background-color {
-  background-color: #3B245E;
-  border-color: #3B245E;
 }
 
 .has-primary-color,

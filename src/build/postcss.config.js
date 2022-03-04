@@ -15,19 +15,20 @@ module.exports = ctx => {
       },
 	  "postcss-understrap-palette-generator" : {
 		colors: [
-			"--bs-blue",
-			"--bs-indigo",
 			"--bs-purple",
-			"--bs-pink",
-			"--bs-red",
-			"--bs-orange",
-			"--bs-yellow",
+      "--bs-gray",
+      "--bs-purple-dark",
+      "--bs-purple-light",
+      "--bs-gray-dark",
+      "--bs-gray-light",
+			"--bs-text",
+      "--bs-black",
+      "--bs-white",
 			"--bs-green",
+      "--bs-blue",
 			"--bs-teal",
-			"--bs-cyan",
-			"--bs-white",
-			"--bs-gray",
-			"--bs-gray-dark"
+      "--bs-gold",
+      "--bs-red"
 		]
 	  }
     }

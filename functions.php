@@ -94,9 +94,31 @@ add_action( 'customize_controls_enqueue_scripts', 'understrap_child_customize_co
  */
 add_action('wp_head', 'arca_google_fonts');
 function arca_google_fonts() {
-?>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
-<?php
+	?>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+	<?php
 };
+
+/**
+ * Load Lottie animations player on homepage
+ */
+add_action('wp_head', 'arca_lottie_preconnect');
+function arca_lottie_preconnect() {
+	if ( is_front_page() ) {
+		?>
+		<link rel="preconnect" href="https://unpkg.com">
+		<?php
+	}
+};
+/*
+add_action('wp_footer', 'arca_lottie_preconnect');
+function arca_lottie_player() {
+	if ( is_front_page() ) {
+		?>
+		<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+		<?php
+	}
+}; */
+
