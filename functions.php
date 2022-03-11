@@ -158,7 +158,7 @@ function arca_add_annc_bar() {
         echo '</div>';
     }
 }
-// add_action( 'astra_header_before', 'arca_add_annc_bar' );
+add_action( 'wp_body_open', 'arca_add_annc_bar' );
 
 /**
  * Change standard footer copyright info to pull from ACF options page
@@ -173,4 +173,20 @@ function understrap_add_site_child_info() {
     <div class="arca-footer-copyright">Copyright &copy; 2020–<?php echo date('Y') . " "; ?><?php the_field('arca_copyright', 'option'); ?></div>
 	<?php
 }
+
+/**
+ * Insert CSS based on extra page styles from ACF
+ */
+function arca_acf_dynamic_styles() {
+    echo "<style>";
+	if ( get_field( 'remove_page_bp' ) ) {
+		?>
+		#full-width-page-wrapper {
+			padding-bottom: 0;
+		}
+		<?php
+	}
+	echo "</style>";
+}
+add_action( 'wp_head', 'arca_acf_dynamic_styles' );
 
