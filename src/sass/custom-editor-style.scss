@@ -19,10 +19,6 @@
 @import "assets/understrap/theme/colors";
 @import "assets/understrap/theme/blocks";
 
-// Add Bootstrap card & grid styles to editor
-@import "assets/bootstrap5/card";
-@import "assets/bootstrap5/grid";
-
 // Fixes Gutenberg's cover block color picker.
 .components-circular-option-picker__option {
 	border-radius: 50%;
@@ -32,4 +28,18 @@
 .editor-post-title .editor-post-title__input{
 	font-size: $h1-font-size;
 	font-weight: $headings-font-weight;
+}
+
+/* ArCA custom editor fixes */
+
+// Add Bootstrap card & grid styles to editor
+@import "assets/bootstrap5/card";
+@import "assets/bootstrap5/grid";
+
+.card {
+	padding: 0;
+
+	p.card-text {
+		font-size: 0.85em;
+	}
 }

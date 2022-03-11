@@ -1174,6 +1174,16 @@ body.understrap-no-sidebar .wp-block-cover.alignwide {
   border: 1px solid transparent;
 }
 
+.components-circular-option-picker__option {
+  border-radius: 50%;
+}
+
+.editor-post-title .editor-post-title__input {
+  font-size: 2.8125rem;
+  font-weight: 500;
+}
+
+/* ArCA custom editor fixes */
 .card {
   position: relative;
   display: flex;
@@ -2622,13 +2632,11 @@ body.understrap-no-sidebar .wp-block-cover.alignwide {
     --bs-gutter-y: 3rem;
   }
 }
-.components-circular-option-picker__option {
-  border-radius: 50%;
+.card {
+  padding: 0;
 }
-
-.editor-post-title .editor-post-title__input {
-  font-size: 2.8125rem;
-  font-weight: 500;
+.card p.card-text {
+  font-size: 0.85em;
 }
 
 /*# sourceMappingURL=custom-editor-style.css.map */

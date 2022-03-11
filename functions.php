@@ -190,3 +190,8 @@ function arca_acf_dynamic_styles() {
 }
 add_action( 'wp_head', 'arca_acf_dynamic_styles' );
 
+// Function that retrieves alt text for featured images, used in team block
+function get_the_post_thumbnail_alt($post_id) {
+    return get_post_meta(get_post_thumbnail_id($post_id), '_wp_attachment_image_alt', true);
+}
+

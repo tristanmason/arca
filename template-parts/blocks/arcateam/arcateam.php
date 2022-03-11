@@ -33,11 +33,6 @@ $team_columns_phone = get_field('team_columns_phone');
 $team_show_titles = get_field('team_show_titles');
 $team_show_bio = get_field('team_show_bio');
 
-// Function that retrieves alt text for the featured image
-function get_the_post_thumbnail_alt($post_id) {
-    return get_post_meta(get_post_thumbnail_id($post_id), '_wp_attachment_image_alt', true);
-}
-
 // The post type query
 
 $args = array(
@@ -56,7 +51,7 @@ $query = new WP_Query($args);
 
 ?>
 <div id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>">
-    <div class="row row-cols-<?php echo $team_columns_phone; ?> row-cols-md-<?php echo $team_columns_tablet; ?> row-cols-lg-<?php echo $team_columns_desktop; ?> g-4">
+    <div class="row row-cols-<?php echo $team_columns_phone; ?> row-cols-sm-<?php echo $team_columns_tablet; ?> row-cols-lg-<?php echo $team_columns_desktop; ?> g-4">
       <?php while ( $query->have_posts() ) : $query->the_post();
         $team_id = get_the_ID();
         $feat_img_alt = get_the_post_thumbnail_alt($team_id);
