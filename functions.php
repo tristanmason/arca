@@ -92,7 +92,7 @@ add_action( 'customize_controls_enqueue_scripts', 'understrap_child_customize_co
 /**
  * Load ArCA Google fonts
  */
-add_action('wp_head', 'arca_google_fonts');
+add_action( 'wp_head', 'arca_google_fonts' );
 function arca_google_fonts() {
 	?>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -126,12 +126,12 @@ function arca_lottie_player() {
 * Integrate Advanced Custom Fields
 */
 
-// ACF Options page
-if( function_exists('acf_add_options_page') ) {
-	acf_add_options_page();   
+// ACF Options page.
+if ( function_exists( 'acf_add_options_page' ) ) {
+	acf_add_options_page();
 }
 
-// Annc bar body class
+// Annc bar body class.
 function arca_annc_bar_class( $classes ) {
 	if ( $annc_bar_enabled = get_field( 'annc_bar_enabled', 'option' ) ) {
 		$classes[] = 'annc-bar-enabled';
@@ -179,6 +179,13 @@ function understrap_add_site_child_info() {
  */
 function arca_acf_dynamic_styles() {
 	echo "<style>";
+	if ( get_field( 'remove_page_tp' ) ) {
+		?>
+		#full-width-page-wrapper {
+			padding-top: 0;
+		}
+		<?php
+	}
 	if ( get_field( 'remove_page_bp' ) ) {
 		?>
 		#full-width-page-wrapper {

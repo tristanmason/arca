@@ -104,14 +104,6 @@
 }
 
 /* Home */
-.home { 
-    .entry-header {
-        display: none;
-    }
-    #full-width-page-wrapper {
-        padding-top: 0;
-    }
-}
 .arca-home-hero {
     min-height: 70vw;
     @include media-breakpoint-up(lg) {
