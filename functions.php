@@ -128,35 +128,35 @@ function arca_lottie_player() {
 
 // ACF Options page
 if( function_exists('acf_add_options_page') ) {
-    acf_add_options_page();   
+	acf_add_options_page();   
 }
 
 // Annc bar body class
 function arca_annc_bar_class( $classes ) {
-    if ( $annc_bar_enabled = get_field( 'annc_bar_enabled', 'option' ) ) {
-        $classes[] = 'annc-bar-enabled';
-    }
-    return $classes;
+	if ( $annc_bar_enabled = get_field( 'annc_bar_enabled', 'option' ) ) {
+		$classes[] = 'annc-bar-enabled';
+	}
+	return $classes;
 }
 add_filter( 'body_class','arca_annc_bar_class' );
 
 // Annc bar display
 function arca_add_annc_bar() {
-    $annc_bar_enabled = get_field('annc_bar_enabled', 'option');
-    if ($annc_bar_enabled) {
-        $annc_bar_text = get_field('annc_bar_text', 'option');
-        $annc_bar_link = get_field('annc_bar_link', 'option');
-        echo '<div id="arcaAnncBar">';
-        echo $annc_bar_text;
-        if( $annc_bar_link ): 
-            $link_url = $annc_bar_link['url'];
-            $link_title = $annc_bar_link['title'];
-            $link_target = $annc_bar_link['target'] ? $link['target'] : '_self';
-            ?>
-            <a href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
-        <?php endif;
-        echo '</div>';
-    }
+	$annc_bar_enabled = get_field('annc_bar_enabled', 'option');
+	if ($annc_bar_enabled) {
+		$annc_bar_text = get_field('annc_bar_text', 'option');
+		$annc_bar_link = get_field('annc_bar_link', 'option');
+		echo '<div id="arcaAnncBar">';
+		echo $annc_bar_text;
+		if( $annc_bar_link ): 
+			$link_url = $annc_bar_link['url'];
+			$link_title = $annc_bar_link['title'];
+			$link_target = $annc_bar_link['target'] ? $link['target'] : '_self';
+			?>
+			<a href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+		<?php endif;
+		echo '</div>';
+	}
 }
 add_action( 'wp_body_open', 'arca_add_annc_bar' );
 
@@ -164,13 +164,13 @@ add_action( 'wp_body_open', 'arca_add_annc_bar' );
  * Change standard footer copyright info to pull from ACF options page
  */
 function remove_parent_functions() {
-    remove_action( 'understrap_site_info', 'understrap_add_site_info' );
-    add_action( 'understrap_site_info', 'understrap_add_site_child_info' );
+	remove_action( 'understrap_site_info', 'understrap_add_site_info' );
+	add_action( 'understrap_site_info', 'understrap_add_site_child_info' );
 }
 add_action( 'init', 'remove_parent_functions', 15 );
 function understrap_add_site_child_info() {
 	?>
-    <div class="arca-footer-copyright">Copyright &copy; 2020–<?php echo date('Y') . " "; ?><?php the_field('arca_copyright', 'option'); ?></div>
+	<div class="arca-footer-copyright">Copyright &copy; 2020–<?php echo date('Y') . " "; ?><?php the_field('arca_copyright', 'option'); ?></div>
 	<?php
 }
 
@@ -178,7 +178,7 @@ function understrap_add_site_child_info() {
  * Insert CSS based on extra page styles from ACF
  */
 function arca_acf_dynamic_styles() {
-    echo "<style>";
+	echo "<style>";
 	if ( get_field( 'remove_page_bp' ) ) {
 		?>
 		#full-width-page-wrapper {
@@ -192,6 +192,5 @@ add_action( 'wp_head', 'arca_acf_dynamic_styles' );
 
 // Function that retrieves alt text for featured images, used in team block
 function get_the_post_thumbnail_alt($post_id) {
-    return get_post_meta(get_post_thumbnail_id($post_id), '_wp_attachment_image_alt', true);
+	return get_post_meta(get_post_thumbnail_id($post_id), '_wp_attachment_image_alt', true);
 }
-
