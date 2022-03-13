@@ -15817,8 +15817,8 @@ figure.woocommerce-product-gallery__wrapper {
   background-color: #4F2D7F;
   padding: 1em;
   text-align: center;
-  -webkit-clip-path: polygon(3em 0%, calc(100% - 3em) 0%, 100% 30%, 100% 30%, calc(100% - 7em) 100%, 7em 100%, 0% 30%, 0% 30%);
-  clip-path: polygon(3em 0%, calc(100% - 3em) 0%, 100% 30%, 100% 30%, calc(100% - 7em) 100%, 7em 100%, 0% 30%, 0% 30%);
+  -webkit-clip-path: polygon(3em 0%, calc(100% - 3em) 0%, 100% 30%, calc(100% - 7em) 100%, 7em 100%, 0% 30%, 0% 30%);
+  clip-path: polygon(3em 0%, calc(100% - 3em) 0%, 100% 30%, calc(100% - 7em) 100%, 7em 100%, 0% 30%, 0% 30%);
   color: #ffffff;
   margin: calc(-6.5em - 1vw) auto 1em;
   max-width: calc(1000px + 1vw);
@@ -15937,6 +15937,22 @@ figure.woocommerce-product-gallery__wrapper {
     margin-bottom: -300px;
     transform: translate(-300px, -80px);
   }
+}
+
+/* Single Pages */
+.arca-page-header .wp-block-cover {
+  min-height: calc(400px + 5vw);
+  -webkit-clip-path: polygon(0px 0px, calc(100% - (3em + 2vw)) 0%, 100% 30%, calc(100% - (5em + 3vw)) 100%, 0px 100%);
+  clip-path: polygon(0px 0px, calc(100% - (3em + 2vw)) 0%, 100% 30%, calc(100% - (5em + 3vw)) 100%, 0px 100%);
+}
+.arca-page-header .wp-block-column:nth-of-type(2) {
+  padding: 1em 8% 1em 3%;
+}
+.arca-page-header h1, .arca-page-header .h1 {
+  font-size: calc(2em + 1vw);
+}
+.arca-page-header p {
+  font-size: calc(1em + 0.1vw);
 }
 
 /* Team blocks */
