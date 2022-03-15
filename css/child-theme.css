@@ -15694,10 +15694,15 @@ figure.woocommerce-product-gallery__wrapper {
   }
 }
 /* Typography and buttons */
-.heading-xl {
-  font-size: calc(2.5em + 0.5vw);
-}
+@media (min-width: 992px) {
+  body {
+    --wp--preset--font-size--medium: calc(1em + 0.2vw);
+  }
 
+  .heading-xl {
+    font-size: calc(2.5em + 0.5vw);
+  }
+}
 .entry-content .wp-block-buttons {
   margin-bottom: 1em;
   gap: calc(0.5em + 0.5vw);
@@ -15872,19 +15877,21 @@ figure.woocommerce-product-gallery__wrapper {
 }
 
 @media (min-width: 768px) {
-  .arca-cols-text-right .wp-block-column {
+  .arca-cols-text-right .wp-block-column,
+.arca-cols-text-right .wp-block-column:nth-of-type(2) {
     padding-left: 0;
     padding-right: 5vw;
   }
-  .arca-cols-text-right .wp-block-column .wp-block-image {
+  .arca-cols-text-right .wp-block-image {
     max-height: 550px;
   }
 
-  .arca-cols-text-left .wp-block-column {
+  .arca-cols-text-left .wp-block-column,
+.arca-cols-text-left .wp-block-column:first-of-type {
     padding-left: 5vw;
     padding-right: 0;
   }
-  .arca-cols-text-left .wp-block-column .wp-block-image {
+  .arca-cols-text-left .wp-block-image {
     max-height: 550px;
   }
 }
@@ -15941,9 +15948,34 @@ figure.woocommerce-product-gallery__wrapper {
 
 /* Single Pages */
 .arca-page-header .wp-block-cover {
+  position: relative;
   min-height: calc(400px + 5vw);
-  -webkit-clip-path: polygon(0px 0px, calc(100% - (3em + 2vw)) 0%, 100% 30%, calc(100% - (5em + 3vw)) 100%, 0px 100%);
-  clip-path: polygon(0px 0px, calc(100% - (3em + 2vw)) 0%, 100% 30%, calc(100% - (5em + 3vw)) 100%, 0px 100%);
+  -webkit-clip-path: polygon(0px 0px, calc(100% - (3rem + 2vw)) 0%, 100% 30%, calc(100% - (5rem + 3vw)) 100%, 0px 100%);
+  clip-path: polygon(0px 0px, calc(100% - (3rem + 2vw)) 0%, 100% 30%, calc(100% - (5rem + 3vw)) 100%, 0px 100%);
+}
+.arca-page-header .wp-block-cover:before {
+  content: "";
+  position: absolute;
+  background: #a897c0;
+  opacity: 0.6;
+  transform: skew(-21deg);
+  top: 0;
+  bottom: 0;
+  left: 75%;
+  right: 15%;
+  z-index: 1;
+}
+.arca-page-header .wp-block-cover:after {
+  content: "";
+  position: absolute;
+  background: #4F2D7F;
+  opacity: 0.6;
+  transform: skew(-21deg);
+  top: 0;
+  bottom: 0;
+  left: 85%;
+  right: 0;
+  z-index: 2;
 }
 .arca-page-header .wp-block-column:nth-of-type(2) {
   padding: 1em 8% 1em 3%;
@@ -15951,11 +15983,31 @@ figure.woocommerce-product-gallery__wrapper {
 .arca-page-header h1, .arca-page-header .h1 {
   font-size: calc(2em + 1vw);
 }
-.arca-page-header p {
+
+.arca-page-header p,
+.arca-cols-text-right p,
+.arca-cols-text-left p {
   font-size: calc(1em + 0.1vw);
 }
 
+/* Extra block styles */
+body.understrap-no-sidebar .wp-block-cover.alignfull.cover-max-width .wp-block-cover__inner-container {
+  padding: 2%;
+}
+body.understrap-no-sidebar .wp-block-cover.alignfull.cover-max-width .wp-block-cover__inner-container ul {
+  list-style-position: outside;
+  padding-left: 0.8em;
+}
+@media (min-width: 768px) {
+  body.understrap-no-sidebar .wp-block-cover.alignfull.cover-max-width .wp-block-cover__inner-container {
+    max-width: 800px;
+  }
+}
+
 /* Team blocks */
+.arcateam {
+  padding: 1em;
+}
 .arcateam .card {
   height: 100%;
 }

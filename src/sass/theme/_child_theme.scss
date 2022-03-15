@@ -8,9 +8,15 @@
     }
 }
 /* Typography and buttons */
-.heading-xl {
-    font-size: calc(2.5em + .5vw);
+@include media-breakpoint-up(lg) {
+    body {
+    --wp--preset--font-size--medium: calc(1em + 0.2vw);
+    }
+    .heading-xl {
+        font-size: calc(2.5em + .5vw);
+    }
 }
+
 .entry-content .wp-block-buttons {
     margin-bottom: 1em;
     gap: calc(.5em + .5vw);
@@ -171,23 +177,23 @@
 }
 @include media-breakpoint-up(md) {
     .arca-cols-text-right {
-        .wp-block-column {
+        .wp-block-column,
+        .wp-block-column:nth-of-type(2) {
             padding-left: 0;
             padding-right: 5vw;
-            .wp-block-image {
-                max-height: 550px;
-                // max-width: 800px;
-            }
+        }
+        .wp-block-image {
+            max-height: 550px;
         }
     }
     .arca-cols-text-left {
-        .wp-block-column {
+        .wp-block-column,
+        .wp-block-column:first-of-type {
             padding-left: 5vw;
             padding-right: 0;
-            .wp-block-image {
-                max-height: 550px;
-                // max-width: 800px;
-            }
+        }
+        .wp-block-image {
+            max-height: 550px;
         }
     }
 }
@@ -246,8 +252,34 @@
 /* Single Pages */
 .arca-page-header {
     .wp-block-cover {
+        position: relative;
         min-height: calc( 400px + 5vw );
-        clip-path: polygon( 0px 0px, calc(100% - (3em + 2vw)) 0%, 100% 30%, calc(100% - (5em + 3vw)) 100%, 0px 100% );
+        clip-path: polygon( 0px 0px, calc(100% - (3rem + 2vw)) 0%, 100% 30%, calc(100% - (5rem + 3vw)) 100%, 0px 100% );
+
+        &:before {
+            content: '';
+            position: absolute;
+            background: $purple-lt;
+            opacity: 0.6;
+            transform: skew(-21deg);
+            top: 0;
+            bottom: 0;
+            left: 75%;
+            right: 15%;
+            z-index: 1;
+        }
+        &:after {
+            content: '';
+            position: absolute;
+            background: $purple;
+            opacity: 0.6;
+            transform: skew(-21deg);
+            top: 0;
+            bottom: 0;
+            left: 85%;
+            right: 0;
+            z-index: 2;
+        }
     }
     .wp-block-column:nth-of-type(2) {
         padding: 1em 8% 1em 3%;
@@ -255,13 +287,29 @@
     h1 {
         font-size: calc(2em + 1vw);
     }
-    p {
-        font-size: calc(1em + 0.1vw);
+}
+
+.arca-page-header p,
+.arca-cols-text-right p,
+.arca-cols-text-left p {
+    font-size: calc(1em + 0.1vw);
+}
+
+/* Extra block styles */
+body.understrap-no-sidebar .wp-block-cover.alignfull.cover-max-width .wp-block-cover__inner-container {
+    padding: 2%;
+    ul {
+        list-style-position: outside;
+        padding-left: 0.8em;
+    }
+    @include media-breakpoint-up(md) {
+        max-width: 800px;
     }
 }
 
 /* Team blocks */
 .arcateam {
+    padding: 1em;
     .card {
         height: 100%;
     }
