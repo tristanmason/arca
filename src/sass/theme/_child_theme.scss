@@ -10,7 +10,7 @@
 /* Typography and buttons */
 @include media-breakpoint-up(lg) {
     body {
-    --wp--preset--font-size--medium: calc(1em + 0.2vw);
+    --wp--preset--font-size--medium: calc(1em + 0.15vw);
     }
     .heading-xl {
         font-size: calc(2.5em + .5vw);
@@ -292,7 +292,7 @@
 .arca-page-header p,
 .arca-cols-text-right p,
 .arca-cols-text-left p {
-    font-size: calc(1em + 0.1vw);
+    font-size: calc(1em + 0.15vw);
 }
 
 /* Extra block styles */
