@@ -7,6 +7,11 @@
         white-space: nowrap;
     }
 }
+.wp-block-group.group-negative-mb,
+.wp-block-group.alignfull.group-negative-mb {
+    margin-bottom: -100px;
+}
+
 /* Typography and buttons */
 @include media-breakpoint-up(lg) {
     body {
@@ -316,4 +321,9 @@ body.understrap-no-sidebar .wp-block-cover.alignfull.cover-max-width .wp-block-c
     .card-subtitle, .card-text {
         font-size: 0.85em;
     }
+}
+
+/* Apply CTA block */
+.apply-cta {
+    border-top: 4px solid $purple-lt;
 }
