@@ -201,3 +201,22 @@ add_action( 'wp_head', 'arca_acf_dynamic_styles' );
 function get_the_post_thumbnail_alt($post_id) {
 	return get_post_meta(get_post_thumbnail_id($post_id), '_wp_attachment_image_alt', true);
 }
+
+/**
+ * Block content filters
+ */
+add_filter('render_block', function($block_content, $block) {
+    // Add Bootstrap card classes to Yoast FAQ blocks
+    if('yoast/faq-block' === $block['blockName']) {
+        $block_content = str_replace('schema-faq wp-block-yoast-faq-block', 'schema-faq wp-block-yoast-faq-block row row-cols-1 row-cols-lg-3 g-3 gx-lg-5', $block_content);
+        $block_content = str_replace('<div class="schema-faq-section', '<div class="col"><div class="schema-faq-section', $block_content);
+		$block_content = str_replace('schema-faq-section', 'schema-faq-section card card-body', $block_content);
+		$block_content = str_replace('<strong class="schema-faq-question"', '<h3 class="schema-faq-question"', $block_content);
+		$block_content = str_replace('</strong>', '</h3>', $block_content);
+        $block_content = str_replace('schema-faq-question', 'schema-faq-question h5 card-title mb-3', $block_content);
+        $block_content = str_replace('schema-faq-answer', 'schema-faq-answer card-text text-dark', $block_content);
+		$block_content = str_replace('</p>', '</p></div>', $block_content);
+    }
+    // Always return the content
+    return $block_content;
+}, 10, 2);
