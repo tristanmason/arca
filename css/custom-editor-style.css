@@ -63,30 +63,25 @@ h2, .h2 {
 }
 
 h3, .h3 {
-  font-size: calc(1.321875rem + 0.8625vw);
+  font-size: calc(1.310625rem + 0.7275vw);
 }
 @media (min-width: 1200px) {
   h3, .h3 {
-    font-size: 1.96875rem;
+    font-size: 1.85625rem;
   }
 }
 
 h4, .h4 {
-  font-size: calc(1.29375rem + 0.525vw);
+  font-size: calc(1.276875rem + 0.3225vw);
 }
 @media (min-width: 1200px) {
   h4, .h4 {
-    font-size: 1.6875rem;
+    font-size: 1.51875rem;
   }
 }
 
 h5, .h5 {
-  font-size: calc(1.265625rem + 0.1875vw);
-}
-@media (min-width: 1200px) {
-  h5, .h5 {
-    font-size: 1.40625rem;
-  }
+  font-size: 1.2375rem;
 }
 
 h6, .h6 {

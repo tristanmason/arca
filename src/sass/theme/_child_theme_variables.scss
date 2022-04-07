@@ -68,6 +68,13 @@ $headings-margin-bottom: calc(1rem + .5vw);
 $headings-color: $purple;
 $paragraph-margin-bottom: 1.4rem;
 
+$h1-font-size: $font-size-base * 2.5;
+$h2-font-size: $font-size-base * 2;
+$h3-font-size: $font-size-base * 1.65;
+$h4-font-size: $font-size-base * 1.35;
+$h5-font-size: $font-size-base * 1.1;
+$h6-font-size: $font-size-base;
+
 // Buttons
 $btn-border-radius: 0;
 $input-btn-padding-y: .5rem;

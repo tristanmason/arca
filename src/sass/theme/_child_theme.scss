@@ -189,6 +189,12 @@
         }
         .wp-block-image {
             max-height: 550px;
+            display: flex;
+            align-items: center;
+
+            &.align-start {
+                align-items: start;
+            }
         }
     }
     .arca-cols-text-left {
@@ -199,6 +205,12 @@
         }
         .wp-block-image {
             max-height: 550px;
+            display: flex;
+            align-items: center;
+
+            &.align-start {
+                align-items: start;
+            }
         }
     }
 }
@@ -256,6 +268,8 @@
 
 /* Single Pages */
 .arca-page-header {
+    overflow: hidden;
+
     .wp-block-cover {
         position: relative;
         min-height: calc( 400px + 5vw );
@@ -292,6 +306,15 @@
     h1 {
         font-size: calc(2em + 1vw);
     }
+
+    .yoast-breadcrumbs {
+        margin: -1em 0 1.5em 0;
+        color: #687176;
+
+        a {
+            color: #687176;
+        }
+    }
 }
 
 .arca-page-header p,
@@ -326,4 +349,9 @@ body.understrap-no-sidebar .wp-block-cover.alignfull.cover-max-width .wp-block-c
 /* Apply CTA block */
 .apply-cta {
     border-top: 4px solid $purple-lt;
+}
+
+/* FAQ block */
+.schema-faq-section.card {
+    background-color: #f3f3f3;
 }

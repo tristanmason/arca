@@ -213,7 +213,7 @@ add_filter('render_block', function($block_content, $block) {
 		$block_content = str_replace('schema-faq-section', 'schema-faq-section card card-body', $block_content);
 		$block_content = str_replace('<strong class="schema-faq-question"', '<h3 class="schema-faq-question"', $block_content);
 		$block_content = str_replace('</strong>', '</h3>', $block_content);
-        $block_content = str_replace('schema-faq-question', 'schema-faq-question h5 card-title mb-3', $block_content);
+        $block_content = str_replace('schema-faq-question', 'schema-faq-question h5 card-title pb-3 mb-3 border-bottom border-primary', $block_content);
         $block_content = str_replace('schema-faq-answer', 'schema-faq-answer card-text text-dark', $block_content);
 		$block_content = str_replace('</p>', '</p></div>', $block_content);
     }
