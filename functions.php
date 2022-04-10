@@ -175,10 +175,10 @@ function understrap_add_site_child_info() {
 }
 
 /**
- * Insert CSS based on extra page styles from ACF
+ * CSS to make ACF page padding checkboxes work
  */
 function arca_acf_dynamic_styles() {
-	echo "<style>";
+	echo '<style>';
 	if ( get_field( 'remove_page_tp' ) ) {
 		?>
 		#full-width-page-wrapper {
@@ -193,30 +193,87 @@ function arca_acf_dynamic_styles() {
 		}
 		<?php
 	}
-	echo "</style>";
+	echo '</style>';
 }
 add_action( 'wp_head', 'arca_acf_dynamic_styles' );
 
-// Function that retrieves alt text for featured images, used in team block
-function get_the_post_thumbnail_alt($post_id) {
-	return get_post_meta(get_post_thumbnail_id($post_id), '_wp_attachment_image_alt', true);
+/** Function that retrieves alt text for featured images used in team block **/
+function get_the_post_thumbnail_alt( $post_id ) {
+	return get_post_meta( get_post_thumbnail_id( $post_id ), '_wp_attachment_image_alt', true );
 }
 
 /**
  * Block content filters
  */
-add_filter('render_block', function($block_content, $block) {
-    // Add Bootstrap card classes to Yoast FAQ blocks
-    if('yoast/faq-block' === $block['blockName']) {
-        $block_content = str_replace('schema-faq wp-block-yoast-faq-block', 'schema-faq wp-block-yoast-faq-block row row-cols-1 row-cols-lg-3 g-3 gx-lg-5', $block_content);
-        $block_content = str_replace('<div class="schema-faq-section', '<div class="col"><div class="schema-faq-section', $block_content);
-		$block_content = str_replace('schema-faq-section', 'schema-faq-section card card-body', $block_content);
-		$block_content = str_replace('<strong class="schema-faq-question"', '<h3 class="schema-faq-question"', $block_content);
-		$block_content = str_replace('</strong>', '</h3>', $block_content);
-        $block_content = str_replace('schema-faq-question', 'schema-faq-question h5 card-title pb-3 mb-3 border-bottom border-primary', $block_content);
-        $block_content = str_replace('schema-faq-answer', 'schema-faq-answer card-text text-dark', $block_content);
-		$block_content = str_replace('</p>', '</p></div>', $block_content);
-    }
-    // Always return the content
-    return $block_content;
+add_filter('render_block', function( $block_content, $block ) {
+	// Add Bootstrap card classes to Yoast FAQ blocks.
+	if ( 'yoast/faq-block' === $block['blockName'] ) {
+		$block_content = str_replace( 'schema-faq wp-block-yoast-faq-block', 'schema-faq wp-block-yoast-faq-block row row-cols-1 row-cols-lg-3 g-3 gx-lg-5', $block_content );
+		$block_content = str_replace( '<div class="schema-faq-section', '<div class="col"><div class="schema-faq-section', $block_content );
+		$block_content = str_replace( 'schema-faq-section', 'schema-faq-section card card-body', $block_content );
+		$block_content = str_replace( '<strong class="schema-faq-question"', '<h3 class="schema-faq-question"', $block_content );
+		$block_content = str_replace( '</strong>', '</h3>', $block_content );
+		$block_content = str_replace( 'schema-faq-question', 'schema-faq-question h5 card-title pb-3 mb-3 border-bottom border-primary', $block_content );
+		$block_content = str_replace( 'schema-faq-answer', 'schema-faq-answer card-text text-dark', $block_content );
+		$block_content = str_replace( '</p>', '</p></div>', $block_content );
+	}
+	// Always return the content.
+	return $block_content;
 }, 10, 2);
+
+/**
+ * Dequeue jQuery
+ */
+function arca_jquery_deregister() {
+	wp_deregister_script( 'jquery' );
+}
+
+add_action( 'wp_enqueue_scripts', 'arca_jquery_deregister' );
+
+/**
+ * Remove Wordpress emoji-related things
+ */
+function disable_emojis() {
+ remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+ remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+ remove_action( 'wp_print_styles', 'print_emoji_styles' );
+ remove_action( 'admin_print_styles', 'print_emoji_styles' ); 
+ remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
+ remove_filter( 'comment_text_rss', 'wp_staticize_emoji' ); 
+ remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
+ add_filter( 'tiny_mce_plugins', 'disable_emojis_tinymce' );
+ add_filter( 'wp_resource_hints', 'disable_emojis_remove_dns_prefetch', 10, 2 );
+}
+add_action( 'init', 'disable_emojis' );
+
+/**
+ * Filter function used to remove the tinymce emoji plugin.
+ * 
+ * @param array $plugins 
+ * @return array Difference betwen the two arrays
+ */
+function disable_emojis_tinymce( $plugins ) {
+ if ( is_array( $plugins ) ) {
+ return array_diff( $plugins, array( 'wpemoji' ) );
+ } else {
+ return array();
+ }
+}
+
+/**
+ * Remove emoji CDN hostname from DNS prefetching hints.
+ *
+ * @param array $urls URLs to print for resource hints.
+ * @param string $relation_type The relation type the URLs are printed for.
+ * @return array Difference betwen the two arrays.
+ */
+function disable_emojis_remove_dns_prefetch( $urls, $relation_type ) {
+ if ( 'dns-prefetch' == $relation_type ) {
+ /** This filter is documented in wp-includes/formatting.php */
+ $emoji_svg_url = apply_filters( 'emoji_svg_url', 'https://s.w.org/images/core/emoji/2/svg/' );
+
+$urls = array_diff( $urls, array( $emoji_svg_url ) );
+ }
+
+return $urls;
+}
