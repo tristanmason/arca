@@ -57,6 +57,15 @@ $theme-colors: (
   "dark":       $dark
 );
 
+// Grid breakpoints
+$grid-breakpoints: (xs: 0,
+  sm: 576px,
+  md: 782px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px) !default;
+// scss-docs-end grid-breakpoints
+
 // Navbar
 $navbar-light-color: $primary;
 $navbar-nav-link-padding-x: calc(.65rem + .5vw);
@@ -68,11 +77,11 @@ $headings-margin-bottom: calc(1rem + .5vw);
 $headings-color: $purple;
 $paragraph-margin-bottom: 1.4rem;
 
-$h1-font-size: $font-size-base * 2.5;
-$h2-font-size: $font-size-base * 2;
-$h3-font-size: $font-size-base * 1.65;
-$h4-font-size: $font-size-base * 1.35;
-$h5-font-size: $font-size-base * 1.1;
+$h1-font-size: $font-size-base * 2.6;
+$h2-font-size: $font-size-base * 2.1;
+$h3-font-size: $font-size-base * 1.75;
+$h4-font-size: $font-size-base * 1.45;
+$h5-font-size: $font-size-base * 1.15;
 $h6-font-size: $font-size-base;
 
 // Buttons

@@ -263,17 +263,42 @@ function disable_emojis_tinymce( $plugins ) {
 /**
  * Remove emoji CDN hostname from DNS prefetching hints.
  *
- * @param array $urls URLs to print for resource hints.
+ * @param array  $urls URLs to print for resource hints.
  * @param string $relation_type The relation type the URLs are printed for.
  * @return array Difference betwen the two arrays.
  */
 function disable_emojis_remove_dns_prefetch( $urls, $relation_type ) {
- if ( 'dns-prefetch' == $relation_type ) {
- /** This filter is documented in wp-includes/formatting.php */
- $emoji_svg_url = apply_filters( 'emoji_svg_url', 'https://s.w.org/images/core/emoji/2/svg/' );
+	if ( 'dns-prefetch' === $relation_type ) {
+		/** This filter is documented in wp-includes/formatting.php */
+		$emoji_svg_url = apply_filters( 'emoji_svg_url', 'https://s.w.org/images/core/emoji/2/svg/' );
 
-$urls = array_diff( $urls, array( $emoji_svg_url ) );
- }
-
-return $urls;
+		$urls = array_diff( $urls, array( $emoji_svg_url ) );
+	}
+	return $urls;
 }
+
+/**
+ * Helper function to check post type
+ *
+ * @param string $type current WP post type
+ * @return bool true if is the passed post type, false otherwise
+ */
+function is_post_type( $type ) {
+	global $wp_query;
+	if ( $type === get_post_type( $wp_query->post->ID ) )
+		return true;
+	return false;
+}
+
+/**
+ * Remove "Read More" button/link from Courses custom post type
+ */
+if ( ! function_exists( 'understrap_all_excerpts_get_more_link' ) ) {
+	function understrap_all_excerpts_get_more_link( $post_excerpt ) {
+		if ( ! is_admin() && is_post_type( 'arca_course' ) ) {
+			$post_excerpt = $post_excerpt . '[...]</p>';
+		}
+		return $post_excerpt;
+	}
+}
+add_filter( 'wp_trim_excerpt', 'understrap_all_excerpts_get_more_link' );

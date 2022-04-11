@@ -26,14 +26,16 @@ if ( ! empty( $block['align'] ) ) {
 $images = get_field( 'logo_images' );
 $num_images = count( $images );
 if ( $images ) : ?>
-	<div id="logosWrapper">
-		<div class="logosInner">
-		<?php foreach ( $images as $image ): ?>
-			<img src="<?php echo $image['sizes']['medium']; ?>" alt="<?php echo $image['alt']; ?>" loading="lazy" />
-		<?php endforeach; ?>
-		<?php foreach ( $images as $image ): ?>
-			<img src="<?php echo $image['sizes']['medium']; ?>" alt="<?php echo $image['alt']; ?>" loading="lazy" />
-		<?php endforeach; ?>
+	<div id="<?php echo esc_attr( $id ); ?>" class="<?php echo esc_attr( $className ); ?>">
+		<div id="logosWrapper">
+			<div class="logosInner">
+			<?php foreach ( $images as $image ): ?>
+				<img src="<?php echo $image['sizes']['medium']; ?>" alt="<?php echo $image['alt']; ?>" loading="lazy" />
+			<?php endforeach; ?>
+			<?php foreach ( $images as $image ): ?>
+				<img src="<?php echo $image['sizes']['medium']; ?>" alt="<?php echo $image['alt']; ?>" loading="lazy" />
+			<?php endforeach; ?>
+			</div>
 		</div>
 	</div>
 	<style type="text/css">
@@ -61,9 +63,6 @@ if ( $images ) : ?>
 			100% {
 				transform: translate(-50%, 0);
 			}
-		}
-		.innercontainer #logosWrapper {
-			margin: 0 -1em;
 		}
 	</style>
 <?php endif; ?>

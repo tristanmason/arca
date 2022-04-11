@@ -34,6 +34,6 @@ $template = array(
 $container_max_width = get_field( 'container_max_width' );
 $container_width_unit = get_field( 'container_width_unit' );
 ?>
-<div id="<?php echo esc_attr( $id ); ?>" class="<?php echo esc_attr( $className ); ?>" style="max-width:<?php echo esc_attr( $container_max_width ) . esc_attr( $container_width_unit ); ?>;margin:0 auto;padding:0 1em;">
+<div id="<?php echo esc_attr( $id ); ?>" class="<?php echo esc_attr( $className ); ?>" style="max-width:<?php echo esc_attr( $container_max_width ) . esc_attr( $container_width_unit ); ?>;margin:0 auto;">
 	<?php echo '<InnerBlocks template="' . esc_attr( wp_json_encode( $template ) ) . '" />'; ?>
 </div>
