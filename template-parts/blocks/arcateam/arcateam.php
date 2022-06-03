@@ -25,7 +25,7 @@ if ( ! empty( $block['align'] ) ) {
 }
 
 // Load values and assign defaults.
-$team_category = get_field( 'team_category' );
+$team_categories = get_field( 'team_category' );
 $team_max = get_field( 'team_max' );
 $team_columns_desktop = get_field( 'team_columns_desktop' );
 $team_columns_tablet = get_field( 'team_columns_tablet' );
@@ -42,9 +42,8 @@ $args = array(
 	'tax_query'         => [
 		[
 			'taxonomy'  => 'team_cat',
-			'field'     => 'id',
-			'terms'     => $team_category,
-			'operator'  => 'OR',
+			'field'     => 'term_id',
+			'terms'     => $team_categories,
 		]
 	],
 );
