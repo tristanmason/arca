@@ -25,7 +25,7 @@ if ( ! empty( $block['align'] ) ) {
 }
 
 // Load values and assign defaults.
-$testimonial_category = get_field( 'testimonial_category' );
+$testimonial_categories = get_field( 'testimonial_category' );
 $testimonial_max = get_field( 'testimonial_max' );
 $testimonial_columns_desktop = get_field( 'testimonial_columns_desktop' );
 $testimonial_columns_tablet = get_field( 'testimonial_columns_tablet' );
@@ -34,16 +34,15 @@ $testimonial_max_width = get_field( 'testimonial_max_width' );
 
 // The post type query
 
-if ( $testimonial_category ) {
+if ( $testimonial_categories ) {
 	$args = array(
 		'post_type'      => 'arca_testimonial',
 		'posts_per_page' => $testimonial_max,
 		'tax_query'         => [
 			[
 				'taxonomy'  => 'testimonial_cat',
-				'field'     => 'id',
-				'terms'     => $testimonial_category,
-				'operator'  => 'OR',
+				'field'     => 'term_id',
+				'terms'     => $testimonial_categories,
 			]
 		],
 	);
@@ -68,9 +67,9 @@ $query = new WP_Query( $args );
 		  <div class="col">
 			<div class="card pt-2 px-1 px-sm-0 px-lg-1">
 			  <div class="card-body text-center">
+				<?php the_post_thumbnail( 'medium', ['class' => 'testimonial-headshot', 'alt' => $feat_img_alt ] ); ?>
 				<p class="card-text">&#8220;<?php echo esc_html( $testimonial_text ); ?>&#8221;</p>
-				<?php the_post_thumbnail( 'thumbnail', ['class' => 'testimonial-headshot', 'alt' => $feat_img_alt ] ); ?>
-				<p>&ndash;<?php the_title(); ?></p>
+				<p class="quote-attribution">&ndash;<?php the_title(); ?></p>
 			  </div>
 			</div>
 		  </div>

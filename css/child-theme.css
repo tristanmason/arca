@@ -15889,6 +15889,27 @@ figure.woocommerce-product-gallery__wrapper {
   }
 }
 
+/* Remove if not using home hero gem shape on mobile */
+@media (max-width: 500px) {
+  .arca-gem-row .h1,
+.arca-gem-row h1 {
+    font-size: 1.5rem;
+  }
+
+  .arca-gem-row h2, .arca-gem-row .h2 {
+    padding: 0 1em;
+  }
+
+  .arca-gem-row {
+    margin: calc(-5.5em - 1vw) auto 1em;
+    -webkit-clip-path: polygon(3em 0%, calc(100% - 3em) 0%, 100% 30%, calc(100% - 6em) 100%, 6em 100%, 0% 30%, 0% 30%);
+    clip-path: polygon(3em 0%, calc(100% - 3em) 0%, 100% 30%, calc(100% - 6em) 100%, 6em 100%, 0% 30%, 0% 30%);
+  }
+
+  .arca-gem-row .nobr {
+    white-space: normal;
+  }
+}
 .arca-angles-left {
   -webkit-clip-path: polygon(25% 0, 100% 0, 100% 100%, 25% 100%, 0 67%, 0 33%);
   clip-path: polygon(25% 0, 100% 0, 100% 100%, 25% 100%, 0 67%, 0 33%);
@@ -15998,6 +16019,7 @@ figure.woocommerce-product-gallery__wrapper {
   position: absolute;
   top: -5.5em;
   margin-left: -1em;
+  z-index: -1;
 }
 @media (min-width: 782px) {
   #paperAirplane {
@@ -16088,7 +16110,7 @@ body.understrap-no-sidebar .wp-block-cover.alignfull.cover-max-width .wp-block-c
   box-shadow: 0 0.4rem 0.7rem rgba(0, 0, 0, 0.12);
 }
 .arcateam .card-subtitle, .arcateam .card-text {
-  font-size: 0.85em;
+  font-size: 0.8em;
 }
 
 /* Testimonials block */
@@ -16096,11 +16118,18 @@ body.understrap-no-sidebar .wp-block-cover.alignfull.cover-max-width .wp-block-c
   background-color: #f3f3f3;
   border-top: 6px solid #a897c0;
 }
+.arcatestimonial .card .card-text {
+  font-size: 0.9em;
+}
+.arcatestimonial .card .quote-attribution {
+  color: #4F2D7F;
+}
 
 img.testimonial-headshot {
-  width: 85px;
-  height: 85px;
+  width: 150px;
+  max-height: 150px;
   border-radius: 50%;
+  margin-bottom: 0.8em;
 }
 
 /* Apply CTA block */
@@ -16166,6 +16195,7 @@ ol.arca-gem-list li {
   background-repeat: no-repeat;
   background-position: 1px 0;
   padding-left: 50px;
+  padding-bottom: 1.2em;
 }
 
 /* Home courses */
@@ -16187,6 +16217,11 @@ ol.arca-gem-list li {
   .home-courses-group {
     max-width: 600px;
   }
+}
+
+/* Events (most of the event styles are in the events template) */
+.wfea-cal .not-found {
+  text-align: center;
 }
 
 .has-purple-color,
