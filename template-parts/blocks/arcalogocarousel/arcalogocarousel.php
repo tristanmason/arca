@@ -45,11 +45,13 @@ if ( $images ) : ?>
 			overflow:hidden;
 		}
 		.logosInner {
+			min-height: 150px;
+			background: #fff;
 			position:absolute; 
 			top:0px; 
 			left:0px;
 			white-space: nowrap;
-			animation: logosAnimate <?php echo ( $num_images * 5 ); ?>s linear infinite;
+			animation: logosAnimate <?php echo ( $num_images * 6.5 ); ?>s linear infinite;
 		}
 		.logosInner img {    
 			margin: 0 1em;
