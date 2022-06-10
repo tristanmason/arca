@@ -2687,11 +2687,12 @@ body.understrap-no-sidebar .wp-block-cover.alignwide {
   clip-path: polygon(0.8em 0, 100% 0, 100% calc(100% - 0.8em), calc(100% - 0.8em) 100%, 0 100%, 0 0.8em);
 }
 
-.custom-logo-link {
-  width: 250px;
-  max-width: 70%;
+.menu-item.btn-primary :hover {
+  background-color: #a897c0;
 }
-
+.menu-item.btn-primary :hover .nav-link {
+  color: #3B245E;
+}
 .menu-item.btn-primary .nav-link {
   color: #ffffff;
   padding-right: 1.6rem;
@@ -2798,6 +2799,10 @@ body.understrap-no-sidebar .wp-block-cover.alignwide {
   #footer-full-content .footer-widget:not(:last-of-type):after {
     transform: rotate(20deg);
   }
+}
+#footer-full-content .footer-widget .wp-block-button__link:hover {
+  color: #ffffff;
+  background-color: #818A8F;
 }
 
 @media (min-width: 1200px) {
@@ -3188,6 +3193,16 @@ ol.arca-gem-list li {
 /* Events (most of the event styles are in the events template) */
 .wfea-cal .not-found {
   text-align: center;
+}
+
+.eaw-time {
+  margin-bottom: 0.5em;
+  display: block;
+  color: #555555;
+}
+
+.eaw-summary {
+  font-size: 0.9em;
 }
 
 /* Fix overflowing images in editor */

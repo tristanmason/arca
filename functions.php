@@ -181,14 +181,14 @@ function arca_acf_dynamic_styles() {
 	echo '<style>';
 	if ( get_field( 'remove_page_tp' ) ) {
 		?>
-		#full-width-page-wrapper {
+		#full-width-page-wrapper, #single-wrapper {
 			padding-top: 0;
 		}
 		<?php
 	}
 	if ( get_field( 'remove_page_bp' ) ) {
 		?>
-		#full-width-page-wrapper {
+		#full-width-page-wrapper, #single-wrapper {
 			padding-bottom: 0;
 		}
 		<?php
@@ -291,7 +291,7 @@ function is_post_type( $type ) {
 }
 
 /**
- * Remove "Read More" button/link from Courses custom post type
+ * Remove "Read More" button/link from Courses custom post type.
  */
 if ( ! function_exists( 'understrap_all_excerpts_get_more_link' ) ) {
 	function understrap_all_excerpts_get_more_link( $post_excerpt ) {
@@ -303,9 +303,20 @@ if ( ! function_exists( 'understrap_all_excerpts_get_more_link' ) ) {
 }
 add_filter( 'wp_trim_excerpt', 'understrap_all_excerpts_get_more_link' );
 
-/* Remove WP custom logo support because we're using an inline SVG */
-function remove_logo_from_standard_customizer() {		
-  // Totally remove custom logo option from the Customize -> Site Identity Section
-  remove_theme_support( 'custom-logo' );
+/**
+ *  Remove WP custom logo support because we're using an inline SVG.
+ * */
+function remove_logo_from_standard_customizer() {
+	// Totally remove custom logo option from the Customize -> Site Identity Section
+	remove_theme_support( 'custom-logo' );
 }
-add_action( 'after_setup_theme', 'remove_logo_from_standard_customizer', 11 ); 
+add_action( 'after_setup_theme', 'remove_logo_from_standard_customizer', 11 );
+
+/**
+ * Custom excerpt length function
+ *
+ * @param number $limit custom number of words in excerpt.
+ */
+function excerpt( $limit ) {
+	return wp_trim_words( get_the_excerpt(), $limit );
+}

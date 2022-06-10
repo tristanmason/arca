@@ -41,11 +41,14 @@
     clip-path: polygon(.8em 0,100% 0,100% calc(100% - .8em),calc(100% - .8em) 100%,0 100%,0 .8em);
 }
 
-.custom-logo-link {
-    width: 250px;
-    max-width: 70%;
-}
 .menu-item.btn-primary {
+    & :hover {
+        background-color: $purple-lt;
+        
+        .nav-link {
+            color: $purple-dk;
+        }
+    }
     .nav-link {
         color: $white;
         padding-right: 1.6rem;
@@ -145,6 +148,11 @@
         &:not(:last-of-type):after {
             transform: rotate(20deg);
         }
+    }
+
+    & .wp-block-button__link:hover {
+        color: $white;
+        background-color: $gray;
     }
 }
 @include media-breakpoint-up(xl) {
@@ -536,4 +544,12 @@ ol.arca-gem-list {
 /* Events (most of the event styles are in the events template) */
 .wfea-cal .not-found {
     text-align: center;
+}
+.eaw-time {
+    margin-bottom: 0.5em;
+    display: block;
+    color: $gray-dk;
+}
+.eaw-summary {
+    font-size: 0.9em;
 }
