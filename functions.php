@@ -302,3 +302,10 @@ if ( ! function_exists( 'understrap_all_excerpts_get_more_link' ) ) {
 	}
 }
 add_filter( 'wp_trim_excerpt', 'understrap_all_excerpts_get_more_link' );
+
+/* Remove WP custom logo support because we're using an inline SVG */
+function remove_logo_from_standard_customizer() {		
+  // Totally remove custom logo option from the Customize -> Site Identity Section
+  remove_theme_support( 'custom-logo' );
+}
+add_action( 'after_setup_theme', 'remove_logo_from_standard_customizer', 11 ); 

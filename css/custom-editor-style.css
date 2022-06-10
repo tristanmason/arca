@@ -2750,6 +2750,10 @@ body.understrap-no-sidebar .wp-block-cover.alignwide {
   color: #ffffff;
 }
 
+.arca-footer-logo img {
+  width: 250px;
+}
+
 #wrapper-footer {
   background-color: #3B245E;
   color: #c0c5c7;
@@ -2781,7 +2785,6 @@ body.understrap-no-sidebar .wp-block-cover.alignwide {
     top: 0;
     bottom: 0;
     right: 0;
-    transform: rotate(20deg);
     opacity: 0.3;
   }
   #footer-full-content .footer-widget:first-of-type {
@@ -2789,6 +2792,11 @@ body.understrap-no-sidebar .wp-block-cover.alignwide {
   }
   #footer-full-content .footer-widget:last-of-type {
     padding-left: 2em;
+  }
+}
+@media (min-width: 1000px) {
+  #footer-full-content .footer-widget:not(:last-of-type):after {
+    transform: rotate(20deg);
   }
 }
 
@@ -2980,6 +2988,7 @@ body.understrap-no-sidebar .wp-block-cover.alignwide {
 }
 @media (min-width: 782px) {
   #paperAirplane {
+    z-index: 0;
     width: 300px;
     height: 300px;
     position: relative;
@@ -3146,7 +3155,7 @@ ol.arca-gem-list {
 }
 ul.arca-gem-list li,
 ol.arca-gem-list li {
-  background-image: url("/wp-content/uploads/2022/04/arca-gem.png");
+  background-image: url("../assets/ArCA-gem-icon.svg");
   background-size: 35px 33px;
   min-height: 45px;
   background-repeat: no-repeat;
@@ -3157,7 +3166,7 @@ ol.arca-gem-list li {
 
 /* Home courses */
 .home-courses-group {
-  background-image: url("/wp-content/uploads/2022/04/arca-gem.png");
+  background-image: url("../assets/ArCA-gem-icon.svg");
   background-size: 45px 42px;
   min-height: 55px;
   background-repeat: no-repeat;
