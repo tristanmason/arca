@@ -351,7 +351,7 @@
     }
 }
 
-/* Single Pages */
+/* Single Pages & Courses */
 .arca-page-header {
     overflow: hidden;
 
@@ -402,7 +402,35 @@
     }
 }
 
+.arca-course-header {
+    overflow: hidden;
+
+    .wp-block-cover {
+        position: relative;
+        min-height: calc(400px + 5vw);
+        clip-path: polygon(0 0, 75% 0, 100% 33%, 100% 67%, 75% 100%, 0 100%);
+    }
+
+    .wp-block-column:nth-of-type(2) {
+        padding: 1em 8% 1em 3%;
+    }
+
+    h1 {
+        font-size: calc(2em + 1vw);
+    }
+
+    .yoast-breadcrumbs {
+        margin: -1em 0 1.5em 0;
+        color: #687176;
+
+        a {
+            color: #687176;
+        }
+    }
+}
+
 .arca-page-header p,
+.arca-course-header p,
 .arca-cols-text-right p,
 .arca-cols-text-left p {
     font-size: calc(1em + 0.15vw);
