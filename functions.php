@@ -283,17 +283,17 @@ function disable_emojis_remove_dns_prefetch( $urls, $relation_type ) {
  * @param string $type current WP post type
  * @return bool true if is the passed post type, false otherwise
  */
-function is_post_type( $type ) {
+/*function is_post_type( $type ) {
 	global $wp_query;
 	if ( $type === get_post_type( $wp_query->post->ID ) )
 		return true;
 	return false;
-}
+} */
 
 /**
  * Remove "Read More" button/link from Courses custom post type.
  */
-if ( ! function_exists( 'understrap_all_excerpts_get_more_link' ) ) {
+/*if ( ! function_exists( 'understrap_all_excerpts_get_more_link' ) ) {
 	function understrap_all_excerpts_get_more_link( $post_excerpt ) {
 		if ( ! is_admin() && is_post_type( 'arca_course' ) ) {
 			$post_excerpt = $post_excerpt . '[...]</p>';
@@ -301,7 +301,7 @@ if ( ! function_exists( 'understrap_all_excerpts_get_more_link' ) ) {
 		return $post_excerpt;
 	}
 }
-add_filter( 'wp_trim_excerpt', 'understrap_all_excerpts_get_more_link' );
+add_filter( 'wp_trim_excerpt', 'understrap_all_excerpts_get_more_link' ); */
 
 /**
  *  Remove WP custom logo support because we're using an inline SVG.

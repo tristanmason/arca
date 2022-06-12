@@ -30,10 +30,10 @@ if ( $images ) : ?>
 		<div id="logosWrapper">
 			<div class="logosInner">
 			<?php foreach ( $images as $image ): ?>
-				<img src="<?php echo $image['sizes']['medium']; ?>" alt="<?php echo $image['alt']; ?>" loading="lazy" />
+				<img src="<?php echo $image['sizes']['medium']; ?>" alt="<?php echo $image['alt']; ?>" width="<?php echo $image['sizes']['medium-width']?>" height="<?php echo $image['sizes']['medium-height']?>" class="no-lazy" />
 			<?php endforeach; ?>
 			<?php foreach ( $images as $image ): ?>
-				<img src="<?php echo $image['sizes']['medium']; ?>" alt="<?php echo $image['alt']; ?>" loading="lazy" />
+				<img src="<?php echo $image['sizes']['medium']; ?>" alt="<?php echo $image['alt']; ?>" width="<?php echo $image['sizes']['medium-width']?>" height="<?php echo $image['sizes']['medium-height']?>" class="no-lazy" />
 			<?php endforeach; ?>
 			</div>
 		</div>
