@@ -285,7 +285,7 @@ function disable_emojis_remove_dns_prefetch( $urls, $relation_type ) {
  */
 function is_post_type( $type ) {
 	global $wp_query;
-	if ( $type === get_post_type( $wp_query->post->ID ) )
+	if ( $type === get_post_type( get_the_ID() ) )
 		return true;
 	return false;
 }
