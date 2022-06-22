@@ -14,6 +14,11 @@
 .wp-block-group.alignfull.group-negative-mb {
     margin-bottom: -120px;
 }
+@include media-breakpoint-down(sm) {
+    .wrap-on-mobile {
+        flex-wrap: wrap !important;
+    }
+}
 
 /* Typography and buttons */
 @include media-breakpoint-up(lg) {
@@ -72,6 +77,43 @@
 	text-decoration: underline;
 	margin-left: 5px;
 	white-space: nowrap;
+}
+
+/* Header */
+.dropdown-item {
+    color: $purple;
+}
+.navbar-light .navbar-nav .nav-link:focus,
+.navbar-light .navbar-nav .nav-link:hover {
+    color: $purple-dk;
+}
+@include media-breakpoint-down(lg) {
+    .offcanvas-body {
+        text-align: center;
+
+        .menu-item {
+            font-size: 1.1em;
+
+            &.btn-primary {
+                margin: 0.8em auto;
+            }
+        }
+        .dropdown-menu {
+            text-align: center;
+        }
+    }
+}
+@include media-breakpoint-down(sm) {
+    .navbar-brand {
+        max-width: calc(100% - 80px);
+    }
+    .navbar-brand svg {
+        width: 220px;
+        max-width: 100%;
+    }
+    .navbar .container {
+        flex-wrap: nowrap;
+    }
 }
 
 /* Footer */
@@ -453,7 +495,7 @@ body.understrap-no-sidebar .wp-block-cover.alignfull.cover-max-width .wp-block-c
     padding: 1em;
     .card {
         height: 100%;
-        box-shadow: 0 .4rem .7rem rgba($black, .12);
+        box-shadow: 0 .3rem .6rem rgba($black, .10);
     }
     .card-subtitle, .card-text {
         font-size: 0.8em;
@@ -465,6 +507,7 @@ body.understrap-no-sidebar .wp-block-cover.alignfull.cover-max-width .wp-block-c
     background-color: #f3f3f3;
     border-top: 6px solid $purple-lt;
     // clip-path: polygon(0 0, 100% 0, 100% 75%, 75% 100%, 25% 100%, 0 75%);
+    box-shadow: 0 .3rem .5rem rgba($black, .10);
     
     .card-text {
         font-size: 0.9em;
@@ -491,12 +534,13 @@ img.testimonial-headshot {
 }
 
 /* Courses Query Block */
-.wp-block-query .type-arca_course.has-post-thumbnail {
+.wp-block-query .type-arca_course {
+    margin-bottom: 2rem;
     .wp-block-post-featured-image img {
         clip-path: polygon(0 0, 75% 0, 100% 33%, 100% 67%, 75% 100%, 0 100%);
     }
     .wp-block-post-title {
-        margin: .4em 0;
+        margin: .75em 0 .5em;
     }
 }
 @include media-breakpoint-up(md) {
@@ -580,4 +624,23 @@ ol.arca-gem-list {
 }
 .eaw-summary {
     font-size: 0.9em;
+}
+
+/* Courses */
+.post-type-archive-arca_course #archive-wrapper {
+    padding-top: 0;
+}
+.how-it-works-list {
+    list-style: none;
+    text-align: center;
+    font-size: 1.1em;
+    li {
+        padding-bottom: 0.3em;
+    }
+}
+.single-arca_course {
+    .post-navigation,
+    .entry-footer {
+        display: none;
+    }
 }

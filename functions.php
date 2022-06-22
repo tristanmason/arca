@@ -283,17 +283,17 @@ function disable_emojis_remove_dns_prefetch( $urls, $relation_type ) {
  * @param string $type current WP post type
  * @return bool true if is the passed post type, false otherwise
  */
-/*function is_post_type( $type ) {
+function is_post_type( $type ) {
 	global $wp_query;
 	if ( $type === get_post_type( $wp_query->post->ID ) )
 		return true;
 	return false;
-} */
+}
 
 /**
  * Remove "Read More" button/link from Courses custom post type.
  */
-/*if ( ! function_exists( 'understrap_all_excerpts_get_more_link' ) ) {
+if ( ! function_exists( 'understrap_all_excerpts_get_more_link' ) ) {
 	function understrap_all_excerpts_get_more_link( $post_excerpt ) {
 		if ( ! is_admin() && is_post_type( 'arca_course' ) ) {
 			$post_excerpt = $post_excerpt . '[...]</p>';
@@ -301,13 +301,45 @@ function disable_emojis_remove_dns_prefetch( $urls, $relation_type ) {
 		return $post_excerpt;
 	}
 }
-add_filter( 'wp_trim_excerpt', 'understrap_all_excerpts_get_more_link' ); */
+add_filter( 'wp_trim_excerpt', 'understrap_all_excerpts_get_more_link' );
 
 /**
- *  Remove WP custom logo support because we're using an inline SVG.
+ *  Shorter excerpts for courses.
+ *
+ *  @param number $length the desired excerpt length.
+ * */
+/*
+function courses_custom_excerpt_length( $length ) {
+	if ( ! is_admin() && is_post_type( 'arca_course' ) ) {
+		return 30;
+	}
+}
+add_filter( 'excerpt_length', 'courses_custom_excerpt_length', 999 ); */
+
+
+/**
+ * Remove or change title prefixes on different kinds of archives
+ */
+add_filter('get_the_archive_title', function ( $title ) {
+	if ( is_category() ) {
+		$title = single_cat_title( '', false );
+	} elseif ( is_tag() ) {
+		$title = single_tag_title( '', false );
+	} elseif ( is_author() ) {
+		$title = '<span class="vcard">' . get_the_author() . '</span>';
+	} elseif ( is_tax() ) { // For custom post types.
+		$title = sprintf( __( '%1$s' ), single_term_title( '', false ) );
+	} elseif ( is_post_type_archive() ) {
+		$title = post_type_archive_title( 'All ', false );
+	}
+	return $title;
+});
+
+/**
+ *  Remove WP custom logo support because we're using an inline SVG instead.
  * */
 function remove_logo_from_standard_customizer() {
-	// Totally remove custom logo option from the Customize -> Site Identity Section
+	// Totally remove custom logo option from the Customize -> Site Identity Section.
 	remove_theme_support( 'custom-logo' );
 }
 add_action( 'after_setup_theme', 'remove_logo_from_standard_customizer', 11 );
@@ -320,3 +352,15 @@ add_action( 'after_setup_theme', 'remove_logo_from_standard_customizer', 11 );
 function excerpt( $limit ) {
 	return wp_trim_words( get_the_excerpt(), $limit );
 }
+
+/**
+ *  No limit on number of courses displayed.
+ *
+ *  @param array $query the current wp query.
+ * */
+function arca_courses_unlimit( $query ) {
+	if ( ! is_admin() && $query->is_main_query() && is_post_type_archive( 'arca_course' ) ) {
+			$query->set( 'posts_per_page', '-1' );
+	}
+}
+add_action( 'pre_get_posts', 'arca_courses_unlimit' );
