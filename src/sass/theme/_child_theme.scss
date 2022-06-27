@@ -21,6 +21,10 @@
 }
 
 /* Typography and buttons */
+p.has-text-color a {
+    color: inherit;
+}
+
 @include media-breakpoint-up(lg) {
     body {
     --wp--preset--font-size--medium: calc(1em + 0.15vw);

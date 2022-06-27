@@ -2665,6 +2665,10 @@ body.understrap-no-sidebar .wp-block-cover.alignwide {
   }
 }
 /* Typography and buttons */
+p.has-text-color a {
+  color: inherit;
+}
+
 @media (min-width: 992px) {
   body {
     --wp--preset--font-size--medium: calc(1em + 0.15vw);
