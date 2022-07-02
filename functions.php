@@ -102,7 +102,7 @@ function arca_google_fonts() {
 };
 
 /**
- * Load Lottie animations player on homepage
+ * Preconnect for Lottie animations on homepage
  */
 add_action('wp_head', 'arca_lottie_preconnect');
 function arca_lottie_preconnect() {
@@ -112,15 +112,6 @@ function arca_lottie_preconnect() {
 		<?php
 	}
 };
-/*
-add_action('wp_footer', 'arca_lottie_preconnect');
-function arca_lottie_player() {
-	if ( is_front_page() ) {
-		?>
-		<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-		<?php
-	}
-}; */
 
 /**
 * Integrate Advanced Custom Fields
@@ -181,14 +172,14 @@ function arca_acf_dynamic_styles() {
 	echo '<style>';
 	if ( get_field( 'remove_page_tp' ) ) {
 		?>
-		#full-width-page-wrapper, #single-wrapper {
+		#full-width-page-wrapper, #single-wrapper, #page-wrapper {
 			padding-top: 0;
 		}
 		<?php
 	}
 	if ( get_field( 'remove_page_bp' ) ) {
 		?>
-		#full-width-page-wrapper, #single-wrapper {
+		#full-width-page-wrapper, #single-wrapper, #page-wrapper {
 			padding-bottom: 0;
 		}
 		<?php
@@ -304,7 +295,7 @@ if ( ! function_exists( 'understrap_all_excerpts_get_more_link' ) ) {
 add_filter( 'wp_trim_excerpt', 'understrap_all_excerpts_get_more_link' );
 
 /**
- *  Shorter excerpts for courses.
+ *  Shorter excerpts for courses - uncomment to enable.
  *
  *  @param number $length the desired excerpt length.
  * */
