@@ -64,7 +64,7 @@ body {
 .widget_categories,
 .widget_archive {
 	select {
-		@extend .form-control;
+		@extend .form-control !optional;
 	}
 }
 
